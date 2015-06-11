@@ -229,7 +229,6 @@ module Excon
     #     @option params [String] :path appears after 'scheme://host:port/'
     #     @option params [Hash]   :query appended to the 'scheme://host:port/path/' in the form of '?key=value'
     def request(params={}, &block)
-      params = validate_params(:request, params)
       # @data has defaults, merge in new params to override
       datum = @data.merge(params)
       datum[:headers] = @data[:headers].merge(datum[:headers] || {})
